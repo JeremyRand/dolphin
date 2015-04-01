@@ -227,6 +227,10 @@ struct SCoreStartupParameter
 	int SelectedLanguage;
 
 	bool bWii;
+	
+	bool bInferiusEnabled;
+	bool bInferiusHeadTrackingEnabled;
+	bool bInferiusFirstPersonEnabled;
 
 	// Interface settings
 	bool bConfirmStop, bHideCursor, bAutoHideCursor, bUsePanicHandlers, bOnScreenDisplayMessages;

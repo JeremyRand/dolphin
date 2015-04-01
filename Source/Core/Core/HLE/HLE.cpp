@@ -11,6 +11,7 @@
 #include "Core/HLE/HLE_Misc.h"
 #include "Core/HLE/HLE_OS.h"
 #include "Core/HW/Memmap.h"
+#include "Core/Inferius.h"
 #include "Core/IPC_HLE/WII_IPC_HLE_Device_es.h"
 #include "Core/PowerPC/PowerPC.h"
 #include "Core/PowerPC/PPCSymbolDB.h"
@@ -59,6 +60,12 @@ static const SPatch OSPatches[] =
 	{ "___blank",             HLE_OS::HLE_GeneralDebugPrint,   HLE_HOOK_REPLACE, HLE_TYPE_DEBUG },
 	{ "__write_console",      HLE_OS::HLE_write_console,       HLE_HOOK_REPLACE, HLE_TYPE_DEBUG }, // used by sysmenu (+more?)
 	{ "GeckoCodehandler",     HLE_Misc::HLEGeckoCodehandler,   HLE_HOOK_START,   HLE_TYPE_GENERIC },
+	
+	// Inferius
+	{ "InferiusXYZPositionRead0",  Inferius::HLEXYZPositionRead0,      HLE_HOOK_START,   HLE_TYPE_GENERIC },
+	{ "InferiusCamMatrixWrite0",   Inferius::HLECamMatrixWrite0,       HLE_HOOK_START,   HLE_TYPE_GENERIC },
+	{ "zz_013b2ec_",               Inferius::HLEWeaponAimVectorWrite0, HLE_HOOK_REPLACE, HLE_TYPE_GENERIC },
+	{ "zz_001505c_",               Inferius::HLEPlayerAimRead0,        HLE_HOOK_START,   HLE_TYPE_GENERIC },
 };
 
 static const SPatch OSBreakPoints[] =

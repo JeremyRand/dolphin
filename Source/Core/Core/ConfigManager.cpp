@@ -810,6 +810,11 @@ void SConfig::LoadCoreSettings(IniFile& ini)
 	core->Get("GPUDeterminismMode",        &m_LocalCoreStartupParameter.m_strGPUDeterminismMode, "auto");
 	m_LocalCoreStartupParameter.m_GPUDeterminismMode = ParseGPUDeterminismMode(m_LocalCoreStartupParameter.m_strGPUDeterminismMode);
 	core->Get("GameCubeAdapter",           &m_GameCubeAdapter,                             true);
+	
+	// Inferius
+	core->Get("InferiusEnabled",             &m_LocalCoreStartupParameter.bInferiusEnabled,             false);
+	core->Get("InferiusHeadTrackingEnabled", &m_LocalCoreStartupParameter.bInferiusHeadTrackingEnabled, false);
+	core->Get("InferiusFirstPersonEnabled",  &m_LocalCoreStartupParameter.bInferiusFirstPersonEnabled,  false);
 }
 
 void SConfig::LoadMovieSettings(IniFile& ini)

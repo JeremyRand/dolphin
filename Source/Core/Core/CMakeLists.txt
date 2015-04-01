@@ -11,6 +11,7 @@ set(SRCS	ActionReplay.cpp
 			GeckoCodeConfig.cpp
 			GeckoCode.cpp
 			HotkeyManager.cpp
+			Inferius.cpp
 			MemTools.cpp
 			Movie.cpp
 			NetPlayClient.cpp
@@ -141,6 +142,7 @@ set(SRCS	ActionReplay.cpp
 			HW/WiimoteEmu/Speaker.cpp
 			HW/WiimoteReal/WiimoteReal.cpp
 			HW/WiiSaveCrypted.cpp
+			InferiusGames/StarFoxAssault.cpp
 			IPC_HLE/ICMPLin.cpp
 			IPC_HLE/WII_IPC_HLE.cpp
 			IPC_HLE/WII_IPC_HLE_Device_DI.cpp

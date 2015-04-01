@@ -7,6 +7,7 @@
 #include "Core/ConfigManager.h"
 #include "Core/HW/GCPad.h"
 #include "Core/HW/GCPadEmu.h"
+#include "Core/Inferius.h"
 #include "InputCommon/GCPadStatus.h"
 #include "InputCommon/InputConfig.h"
 #include "InputCommon/ControllerInterface/ControllerInterface.h"
@@ -62,6 +63,8 @@ void GetStatus(u8 _numPAD, GCPadStatus* _pPADStatus)
 
 	// get input
 	((GCPad*)s_config.controllers[_numPAD])->GetInput(_pPADStatus);
+	
+	Inferius::ProcessPad(_numPAD, _pPADStatus);
 }
 
 void Rumble(u8 _numPAD, const ControlState strength)
